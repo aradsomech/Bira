@@ -69,11 +69,11 @@ export function RegisterPage({ className, ...props }: UserAuthFormProps) {
         setErrorsState(newErrors);
         return;
       }
-    //  console.log(joiResponse); 
+      //  console.log(joiResponse);
       setErrorsState(joiResponse);
 
       if (joiResponse) return;
-      let { data } = await axios.post("/users/register", register);
+      let { data } = await axios.post("/api/v1/users/register", register);
       // storeToken(data, rememberMe);
       toast.success("You sign in successfully, please login", {
         position: "top-center",

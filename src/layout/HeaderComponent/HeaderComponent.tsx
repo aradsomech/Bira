@@ -1,11 +1,17 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import MyLinks from "../MyLinks";
 import { ModeToggle } from "@/components/mode-toggle";
+import { useSelector } from "react-redux";
 
 const HeaderComponent = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
+  const loggedIn: boolean = useSelector(
+    (bigPie: any) => bigPie.authSlice.loggedIn
+  );
+  const userData = useSelector((bigPie: any) => bigPie.authSlice.userData);
+  console.log(userData);
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">

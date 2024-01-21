@@ -23,11 +23,11 @@ const registerSchema = Joi.object({
     .email({ tlds: { allow: false } })
     .required(),
   password: Joi.string()
-    .pattern(
-      new RegExp(
-        /^(?=.[A-Z])(?=.[a-z])(?=.[0-9].[0-9].[0-9].[0-9])(?=.[!@%$#^&-(])[A-Za-z0-9!@%$#^&-*(]{8,}$/
-      )
-    )
+    // .pattern(
+    //   new RegExp(
+    //     /^(?=.[A-Z])(?=.[a-z])(?=.[0-9].[0-9].[0-9].[0-9])(?=.[!@%$#^&-(])[A-Za-z0-9!@%$#^&-*(]{8,}$/
+    //   )
+    // )
     .messages({
       "string.pattern.base": "the password should be...",
       "string.empty":

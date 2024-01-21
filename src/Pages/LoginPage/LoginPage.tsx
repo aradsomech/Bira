@@ -10,6 +10,8 @@ import { Label } from "@/components/ui/label";
 import { useNavigate } from "react-router-dom";
 import { LoginValidation } from "@/validation/LoginValidation";
 import ROUTES from "@/routes/ROUTES";
+import { storeToken } from "@/storage/storgeService";
+import useAutoLogin from "@/hooks/useAutoLogin";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -22,7 +24,7 @@ export function LoginPage({ className, ...props }: UserAuthFormProps) {
   );
 
   const navigate = useNavigate();
-
+  const autoLogin = useAutoLogin();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
@@ -35,10 +37,13 @@ export function LoginPage({ className, ...props }: UserAuthFormProps) {
       setErrorsState(joiResponse);
       if (joiResponse) return;
 
-      let { data } = await axios.post("/users/login", {
+      const { data } = await axios.post("/api/v1/users/login", {
         email: emailValue,
         password: passwordValue,
       });
+      console.log(data.jwt);
+
+      storeToken(data.jwt, rememberMe);
 
       toast.success("You logged in successfully 🎉", {
         position: "top-center",
@@ -49,7 +54,7 @@ export function LoginPage({ className, ...props }: UserAuthFormProps) {
         draggable: true,
         progress: undefined,
       });
-
+      autoLogin(true);
       navigate(ROUTES.HOME);
     } catch (err) {
       console.error("Error from login", err);

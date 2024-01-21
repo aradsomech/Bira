@@ -8,20 +8,20 @@ const loginSchema = Joi.object({
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .required(),
-  // // password: Joi.string()
-  // //   .pattern(
-  // //     new RegExp(
-  // //       /^(?=.[A-Z])(?=.[a-z])(?=.[0-9].[0-9].[0-9].[0-9])(?=.[!@%$#^&-(])[A-Za-z0-9!@%$#^&-*(]{8,}$/
-  // //     )
-  // //   )
-  //   .messages({
-  //     "string.pattern.base": "the password should be...111",
-  //     "string.empty":
-  //       "password must be filled with something that you will forget",
-  //   })
-  //   .min(2)
-  //   .max(20)
-  //   .required(),
+  password: Joi.string()
+    //   .pattern(
+    //     new RegExp(
+    //       /^(?=.[A-Z])(?=.[a-z])(?=.[0-9].[0-9].[0-9].[0-9])(?=.[!@%$#^&-(])[A-Za-z0-9!@%$#^&-*(]{8,}$/
+    //     )
+    //   )
+    .messages({
+      "string.pattern.base": "the password should be...111",
+      "string.empty":
+        "password must be filled with something that you will forget",
+    })
+    .min(2)
+    .max(20)
+    .required(),
 });
 
 const LoginValidation = (inputToCheck: LoginInput) =>

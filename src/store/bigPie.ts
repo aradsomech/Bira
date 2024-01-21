@@ -7,7 +7,7 @@ import darkThemeSlice from "./darkThemeSlice";
 const store = configureStore({
   reducer: {
     counterSlice,
-    auth: authSlice,
+    authSlice,
     darkThemeSlice,
   },
 });
