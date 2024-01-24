@@ -5,27 +5,17 @@ import MainComponent from "./MainComponent/MainComponent";
 import FooterComponent from "./FooterComonent/FooterComponent";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { useLocation } from "react-router-dom";
+import ROUTES from "@/routes/ROUTES";
 
 const LayoutComponent = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
-  console.log("Current Route:", location.pathname);
-
-  const isLandingPage = location.pathname === "/land";
-  const isLoginPage = location.pathname === "/login";
-  const isRegisterPage = location.pathname === "/register";
-
-  console.log("Is Landing Page:", isLandingPage);
-  console.log("Is Login Page:", isLoginPage);
-  console.log("Is Register Page:", isRegisterPage);
-
-  const showHeader = !isLandingPage || isLoginPage || isRegisterPage;
-
-  console.log("Show Header:", showHeader);
+  const isLandingPage = location.pathname === ROUTES.LANDPAGE;
+  const isLoginPage = location.pathname === ROUTES.LOGIN;
 
   return (
     <div>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        {showHeader && <HeaderComponent />}
+        {!isLandingPage && !isLoginPage && <HeaderComponent />}
         <MainComponent>{children}</MainComponent>
         <FooterComponent />
       </ThemeProvider>

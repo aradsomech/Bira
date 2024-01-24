@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Icons } from "../loginPage/icons";
+
 import { Label } from "@/components/ui/label";
 import { toast } from "react-toastify";
 
@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { RegisterValidation } from "@/validation/registerValidation";
 import axios from "axios";
 import ROUTES from "@/routes/ROUTES";
+import { Icons } from "../LoginPage/icons";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 type User = {
@@ -19,6 +20,7 @@ type User = {
   email: string;
   password: string;
 };
+
 export function RegisterPage({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [register, setRegister] = React.useState<User>({
@@ -76,7 +78,7 @@ export function RegisterPage({ className, ...props }: UserAuthFormProps) {
       let { data } = await axios.post("/api/v1/users/register", register);
       // storeToken(data, rememberMe);
       toast.success("You sign in successfully, please login", {
-        position: "top-center",
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

@@ -46,7 +46,7 @@ export function LoginPage({ className, ...props }: UserAuthFormProps) {
       storeToken(data.jwt, rememberMe);
 
       toast.success("You logged in successfully 🎉", {
-        position: "top-center",
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

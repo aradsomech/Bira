@@ -12,10 +12,10 @@ import LandPage from "@/Pages/LandPage/LandPage";
 const Router = () => {
   return (
     <Routes>
+      <Route path={ROUTES.LANDPAGE} element={<LandPage />} />
       <Route path={ROUTES.HOME} element={<Tasks />} />
       <Route path={ROUTES.LOGIN} element={<LoginAuthenticationPage />} />
       <Route path={ROUTES.REGISTER} element={<RegisterAuthenticationPage />} />
-      <Route path={ROUTES.LANDPAGE} element={<LandPage />} />
     </Routes>
   );
 };
