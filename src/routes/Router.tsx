@@ -1,11 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import React from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import ROUTES from "./ROUTES";
 
 import AboutPage from "@/Pages/LandPage/LandPage";
-
 import LoginAuthenticationPage from "@/Pages/LoginPage/LoginAuthenticationPage";
-
 import Tasks from "@/Pages/TaskPage/Tasks";
 import RegisterAuthenticationPage from "@/Pages/RegisterPage/RegisterAuthenticationPage";
 import LandPage from "@/Pages/LandPage/LandPage";
@@ -20,4 +19,5 @@ const Router = () => {
     </Routes>
   );
 };
+
 export default Router;

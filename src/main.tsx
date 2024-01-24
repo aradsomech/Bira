@@ -6,6 +6,8 @@ import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 import { getToken } from "./storage/storgeService.ts";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import store from "./store/bigPie";
 axios.defaults.baseURL = "http://localhost:9090";
 axios.interceptors.request.use((config) => {
@@ -30,6 +32,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       <BrowserRouter>
         <App />
+        <ToastContainer />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

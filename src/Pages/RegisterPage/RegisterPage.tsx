@@ -84,7 +84,7 @@ export function RegisterPage({ className, ...props }: UserAuthFormProps) {
         draggable: true,
         progress: undefined,
       });
-      console.log("Successfully sign in:", data);
+      // console.log("Successfully sign in:", data);
       // autoLogin(true);
       navigate(ROUTES.LOGIN);
     } catch (err) {
