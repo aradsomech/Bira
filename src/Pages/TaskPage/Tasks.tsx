@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { UserNav } from "./components/user-nav";
 import { DataTable } from "./components/data-table";
 import { columns } from "./components/columns";
 import { tasks } from "./data/data";
+import axios from "axios";
+import { ITask } from "@/lib/types";
 
 const Tasks = () => {
+  // const [tasks, setTasks] = useState<ITask[]>([]);
+
+  useEffect(() => {
+    const { data } = axios.get("/api/v1/tasks").then((res) => {
+      console.log(res.data);
+    });
+  }, []);
+
   return (
     <>
       <div className="md:hidden">

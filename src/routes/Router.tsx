@@ -3,7 +3,6 @@ import { Route, Routes, Navigate } from "react-router-dom";
 
 import ROUTES from "./ROUTES";
 
-import AboutPage from "@/Pages/LandPage/LandPage";
 import LoginAuthenticationPage from "@/Pages/LoginPage/LoginAuthenticationPage";
 import Tasks from "@/Pages/TaskPage/Tasks";
 import RegisterAuthenticationPage from "@/Pages/RegisterPage/RegisterAuthenticationPage";
