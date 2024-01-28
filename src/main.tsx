@@ -18,7 +18,7 @@ axios.interceptors.request.use((config) => {
       adding headers
       and sending the request to the server
     */
-    config.headers["x-auth-token"] = token;
+    config.headers["Authorization"] = `bearer ${token}`;
     /*
       headers = {
         x-auth-token:token
