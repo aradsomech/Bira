@@ -5,16 +5,18 @@ import { columns } from "./components/columns";
 import { tasks } from "./data/data";
 import axios from "axios";
 import { ITask } from "@/lib/types";
+import { log } from "console";
 
 const Tasks = () => {
-  // const [tasks, setTasks] = useState<ITask[]>([]);
+  const [tasks1, setTasks1] = useState<ITask[]>([]);
 
   useEffect(() => {
     const { data } = axios.get("/api/v1/tasks").then((res) => {
       console.log(res.data);
+      setTasks1(res.data);
     });
   }, []);
-
+  console.log(tasks1);
   return (
     <>
       <div className="md:hidden">
@@ -45,7 +47,7 @@ const Tasks = () => {
             <UserNav />
           </div>
         </div>
-        <DataTable data={tasks} columns={columns} />
+        <DataTable data={tasks1} columns={columns} />
       </div>
     </>
   );

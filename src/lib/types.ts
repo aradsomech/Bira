@@ -1,11 +1,11 @@
 export type ITask = {
-  _id?: string;
-  taskNumber: number;
+  _id: string;
+  // taskNumber: number;
   title: string;
-  status?: number;
-  priority?: string;
-  content?: string;
-  createdAt: Date;
+  status: string;
+  priority: string;
+  content: string;
+  // createdAt: Date;
 };
 
 export type ITaskInput = {
