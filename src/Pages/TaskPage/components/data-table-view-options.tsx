@@ -13,6 +13,7 @@ import { Table } from "@tanstack/react-table";
 
 import { Button } from "@/components/ui/button";
 import CreateTask from "./create-task";
+import ProfilePage from "@/Pages/ProfilePage/ProfilePage";
 
 interface DataTableViewOptionsProps<TData> {
   table: Table<TData>;
@@ -34,6 +35,7 @@ export function DataTableViewOptions<TData>({
         </Button>
       </DropdownMenuTrigger>
       <CreateTask />
+      <ProfilePage />
 
       <DropdownMenuContent align="end" className="w-[150px]">
         <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>

@@ -37,7 +37,7 @@ const HeaderComponent = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <a>item</a>
             </li>
             <li>
               <a>Parent</a>
@@ -76,7 +76,10 @@ const HeaderComponent = () => {
           ))}
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex flex-row gap-2">
+        <p>
+          <p>Hello {userData?.payload?.name}</p>
+        </p>
         <div className="form-control">
           <input
             type="text"
@@ -103,7 +106,7 @@ const HeaderComponent = () => {
           >
             <li>
               <a className="justify-between">
-                Profile
+                Profile1
                 <span className="badge">New</span>
               </a>
             </li>

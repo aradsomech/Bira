@@ -14,7 +14,17 @@ const useAutoLogin = () => {
 
       if (!token) return;
       const dataFromToken = jwtDecode(token);
-      if (skipTokenTest) await axios.get(`/users/${dataFromToken._id}`);
+      console.log(dataFromToken);
+
+      await axios
+        .get(`/api/v1/users/${dataFromToken.payload._id}`)
+        .then((response) => {
+          console.log(response.data.user.firstName);
+          dataFromToken.payload.name =
+            response.data.user.firstName + " " + response.data.user.lastName;
+        });
+      console.log(dataFromToken);
+
       console.log(dataFromToken);
 
       dispatch(authActions.login(dataFromToken));

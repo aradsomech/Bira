@@ -1,6 +1,6 @@
 interface InputsValue {
-  first: string;
-  last: string;
+  firstName: string;
+  lastName: string;
   phone: string;
   email: string;
   password: string;
@@ -11,8 +11,8 @@ const normalizeData = (
   isAdmin: boolean
 ): Record<string, any> => {
   return {
-    firstName: inputsValue.first,
-    lastName: inputsValue.last,
+    firstName: inputsValue.firstName,
+    lastName: inputsValue.lastName,
     phone: inputsValue.phone,
     email: inputsValue.email,
     password: inputsValue.password,
